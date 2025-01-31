@@ -1,0 +1,14 @@
+﻿@model Product
+
+
+<div>
+    <form method="post" asp-action="Add">
+        <input type="number" asp-for="CompanyId" hidden value="@ViewBag.CompId" />
+        <input asp-for="Name" value="@Model.Name" />
+        <input asp-for="Price" value="@Model.Price" />
+        <input asp-for="Description" value="@Model.Description" />
+        <input asp-for="Image" value="@Model.Image" />
+        @Html.DropDownList("CategoryId", ViewBag.CategoryChoose as SelectList)
+        <input type="submit" />
+    </form>
+</div>

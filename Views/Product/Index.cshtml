@@ -1,0 +1,21 @@
+﻿@model List<Product>
+
+@foreach (var prod in Model)
+{
+    <div>
+    <img src="@prod.Image" />
+    <h2>Id: @prod.Id</h2>
+    <h2>Name: @prod.Name</h2>
+    <h2>Category: @prod.CategoryId</h2>
+    <h2>Company: @prod.CompanyId</h2>
+    <h3>Price: @prod.Price</h3>
+
+    <p>@prod.Description</p>
+
+    <form method="get">
+        <input type="number" value="@prod.Id" name="id" hidden />
+        <input type="submit" value="Delete" asp-action="Delete" />
+        <input type="submit" value="Edit" asp-action="Edit" />
+    </form>
+</div>
+}
