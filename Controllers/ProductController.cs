@@ -1,7 +1,11 @@
+using System.Reflection;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 using OnlineShop.Data;
 using OnlineShop.Models;
+using OnlineShop.Models.ViewModel;
 
 namespace OnlineShop.Controllers
 {
@@ -9,16 +13,23 @@ namespace OnlineShop.Controllers
     {
 
         private ApplicationDbContext context;
+        private IWebHostEnvironment webHostEnvironment;
 
-        public ProductController(ApplicationDbContext context)
+        public ProductController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             this.context = context;
+            this.webHostEnvironment = webHostEnvironment;
         }
         // GET: ProductController
         public ActionResult Index()
         {
-            List<Product> products = context.Products.ToList();
-            return View(products);
+            //  var a = context.Products.ToList();
+            ProductFilterVM productFilter = new ProductFilterVM()
+            {
+                Products = context.Products.Include(x => x.Category).Include(x => x.Company),
+                Categories = context.Category
+            };
+            return View(productFilter);
         }
 
         public IActionResult Add(int id)
@@ -27,16 +38,33 @@ namespace OnlineShop.Controllers
             var category = context.Category.ToList();
             ViewBag.CategoryChoose = new SelectList(category, "Id", "Name");
 
-            return View(new Product());
+            return View(new ProductViewModel());
         }
         [HttpPost]
-        public IActionResult Add(Product product)
+        [ValidateAntiForgeryToken]
+        public IActionResult Add(ProductViewModel product)
         {
+
+            string webRootPath = webHostEnvironment.WebRootPath;
+            string upload = Path.Combine(webRootPath, WC.ImagePath);
+            string fileName = Guid.NewGuid().ToString();
+            string extension = Path.GetExtension(product.Image.FileName);
+            string folder = Path.Combine(webRootPath, upload);
+            string endPath = Path.Combine(folder, $"{fileName}{extension}");
+            if (!Directory.Exists(folder))
+            {
+                Directory.CreateDirectory(folder);
+            }
+            using (var fileStream = new FileStream(endPath, FileMode.Create))
+            {
+                // Запись файла сюда
+                product.Image.CopyTo(fileStream);
+            }
 
             Product productnew = new Product()
             {
                 Name = product.Name,
-                Image = product.Image,
+                Image = Path.Combine(WC.ImagePath,$"{fileName}{extension}"),
                 CategoryId = product.CategoryId,
                 CompanyId = product.CompanyId,
                 Description = product.Description,
@@ -49,20 +77,26 @@ namespace OnlineShop.Controllers
 
         public IActionResult Edit(int id)
         {
-            var comp = context.Products.Find(id);
-            return View(comp);
+            var product = context.Products.Find(id);
+            var category = context.Category.ToList();
+            var company = context.Company.ToList();
+            ViewBag.CategoryChoose = new SelectList(category, "Id", "Name");
+            ViewBag.CompanyChoose = new SelectList(company, "Id", "Name");
+            return View(product);
         }
         [HttpPost]
-        public IActionResult Edit(Product prod)
+        public IActionResult Edit(Product product)
         {
-            if (ModelState.IsValid)
-            {
-                var comp = context.Products.Find(prod.Id);
-                comp.Name = prod.Name;
-                context.SaveChangesAsync();
-                return RedirectToAction("Index","");
-            }
-            return View(prod);
+
+            var comp = context.Products.Find(product.Id);
+            comp.Name = product.Name;
+            comp.Image = product.Image;
+            comp.CategoryId = product.CategoryId;
+            comp.CompanyId = product.CompanyId;
+            comp.Description = product.Description;
+            comp.Price = product.Price;
+            context.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         public IActionResult Delete(int id)

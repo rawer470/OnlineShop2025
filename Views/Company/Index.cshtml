@@ -4,14 +4,19 @@
 
 @foreach (var comp in Model)
 {
-    <div>
-    <h2>Id: @comp.Id</h2>
-    <h2>Name: @comp.Name</h2>
-    <form method="get">
-        <input type="number" value="@comp.Id" name="id" hidden />
-        <input type="submit" value="Delete" asp-action="Delete" />
-        <input type="submit" value="Edit" asp-action="Edit" />
-        <input type="submit" value="Add Product" asp-action="Add" asp-controller="Product" />
-    </form>
+
+    <div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">@comp.Name</h5>
+        <p class="card-text">Id: @comp.Id</p>
+        <form method="get">
+            <input type="number" value="@comp.Id" name="id" hidden />
+            <input type="submit" value="Delete" class="btn btn-danger" asp-action="Delete" />
+            <input type="submit" value="Edit" class="btn btn-primary" asp-action="Edit" />
+            <input type="submit" value="Add Product" class="btn btn-success" asp-action="Add"
+                asp-controller="Product" />
+        </form>
+    </div>
 </div>
+
 }

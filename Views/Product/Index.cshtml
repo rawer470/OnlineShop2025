@@ -1,21 +1,47 @@
-﻿@model List<Product>
+﻿@using OnlineShop.Models.ViewModel
+@model ProductFilterVM
 
-@foreach (var prod in Model)
-{
-    <div>
-    <img src="@prod.Image" />
-    <h2>Id: @prod.Id</h2>
-    <h2>Name: @prod.Name</h2>
-    <h2>Category: @prod.CategoryId</h2>
-    <h2>Company: @prod.CompanyId</h2>
-    <h3>Price: @prod.Price</h3>
 
-    <p>@prod.Description</p>
+<div class="container">
+    <div class="text-center">
+        
+        <button class="btn btn-dark filter-button" data-filter="all">All</button>
 
-    <form method="get">
-        <input type="number" value="@prod.Id" name="id" hidden />
-        <input type="submit" value="Delete" asp-action="Delete" />
-        <input type="submit" value="Edit" asp-action="Edit" />
-    </form>
+        @foreach (var category in Model.Categories)
+        {
+            <button class="btn btn-outline-secondary filter-button" data-filter="@category.Name.Replace(' ', '_')">
+                @category.Name
+            </button>
+        }
+    </div>
+    <br />
+
+    <div class="row" style="margin: 10px;">
+        @foreach (var prod in Model.Products)
+        {
+            //Display all Product
+            <partial name="_IndividualProductCart" model="prod"/>
+        }
+    </div>
 </div>
+
+@section Scripts{
+    <script>$(document).ready(function(){
+
+     $(".filter-button").click(function(){
+
+         var value = $(this).attr('data-filter');
+         if(value == "all")
+         {
+             $('.filter').show('1000');
+         }
+         else
+         {
+             $(".filter").not('.'+value).hide('3000');
+             $('.filter').filter('.'+value).show('3000');
+
+         }
+     });
+
+ });</script>
 }

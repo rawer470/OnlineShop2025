@@ -1,0 +1,21 @@
+﻿@model Product
+
+<div class="card filter @Model.Category.Name.Replace(' ','_')" style="width: 18rem;">
+
+    <!-- Code From Index-->
+    <img src="@Model.Image" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text">Id: @Model.Id</p>
+        <p class="card-text">Category: @Model.CategoryId</p>
+        <p class="card-text">Company: @Model.CompanyId</p>
+        <p class="card-text">Price: @Model.Price</p>
+        <p class="card-text">@Model.Description</p>
+        <form method="get">
+            <input type="number" value="@Model.Id" name="id" hidden />
+            <input type="submit" value="Delete" asp-action="Delete" />
+            <input type="submit" value="Edit" asp-action="Edit" />
+        </form>
+    </div>
+
+</div>

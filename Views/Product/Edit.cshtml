@@ -1,10 +1,9 @@
-﻿@using OnlineShop.Models.ViewModel;
-@model ProductViewModel
+﻿@model Product
 
 
 <div>
-    <form method="post" enctype="multipart/form-data" asp-action="Add">
-        <input type="number" asp-for="CompanyId" hidden value="@ViewBag.CompId" />
+    <form method="post" asp-action="Edit">
+        <input type="number" asp-for="Id" hidden value="@Model.Id"/>
         <div class="mb-3">
             <label asp-for="Name" class="form-label">Name</label>
             <input type="text" asp-for="Name" value="@Model.Name" class="form-control"
@@ -20,12 +19,13 @@
             <input type="text" asp-for="Description" value="@Model.Description" class="form-control"
                 placeholder="Example input placeholder">
         </div>
-    
+
         <div class="mb-3">
             <label class="form-label">Image</label>
-            <input type="file" name="image" asp-for="Image" class="form-control" placeholder="Image">
+            <input type="text" name="Image" asp-for="Image" class="form-control" placeholder="Image">
         </div>
         @Html.DropDownList("CategoryId", ViewBag.CategoryChoose as SelectList)
-        <input type="submit" class="btn btn-primary"/>
+        @Html.DropDownList("CompanyId", ViewBag.CompanyChoose as SelectList)
+        <input type="submit" class="btn btn-primary" />
     </form>
 </div>
