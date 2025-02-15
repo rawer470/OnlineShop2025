@@ -8,7 +8,6 @@ namespace OnlineShop.Controllers
     {
 
         private ApplicationDbContext context;
-
         public CompanyController(ApplicationDbContext context)
         {
             this.context = context;

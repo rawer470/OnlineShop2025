@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 using OnlineShop.Data;
 using OnlineShop.Models;
 using OnlineShop.Models.ViewModel;
+using OnlineShop.Utility;
 
 namespace OnlineShop.Controllers
 {
@@ -15,14 +16,18 @@ namespace OnlineShop.Controllers
         private ApplicationDbContext context;
         private IWebHostEnvironment webHostEnvironment;
 
+
         public ProductController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             this.context = context;
             this.webHostEnvironment = webHostEnvironment;
+
         }
         // GET: ProductController
         public ActionResult Index()
         {
+
+
             //  var a = context.Products.ToList();
             ProductFilterVM productFilter = new ProductFilterVM()
             {
@@ -64,7 +69,7 @@ namespace OnlineShop.Controllers
             Product productnew = new Product()
             {
                 Name = product.Name,
-                Image = Path.Combine(WC.ImagePath,$"{fileName}{extension}"),
+                Image = Path.Combine(WC.ImagePath, $"{fileName}{extension}"),
                 CategoryId = product.CategoryId,
                 CompanyId = product.CompanyId,
                 Description = product.Description,
@@ -108,6 +113,65 @@ namespace OnlineShop.Controllers
         }
 
 
+        public IActionResult Details(int id)
+        {
+            List<ShoppingCart> shoppingCarts = new List<ShoppingCart>();
+            if (HttpContext.Session.Get<IEnumerable<ShoppingCart>>(WC.SessionCart) != null &&
+           HttpContext.Session.Get<IEnumerable<ShoppingCart>>(WC.SessionCart).Count() > 0)
+            {
+                shoppingCarts = HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart);
+            }
+
+            DetailsVM detailsVM = new DetailsVM()
+            {
+                Product = context.Products.Include(p => p.Category).Include(p => p.Company).Where(p => p.Id == id).FirstOrDefault(),
+                ExistsInCart = false
+            };
+
+            foreach (var item in shoppingCarts)
+            {
+                if (item.ProductId == id)
+                {
+                    detailsVM.ExistsInCart = true;
+                }
+            }
+            return View(detailsVM);
+        }
+
+        [HttpPost]
+        public IActionResult DetailsPost(int id)
+        {
+            List<ShoppingCart> shoppingCarts = new List<ShoppingCart>();
+            if (HttpContext.Session.Get<IEnumerable<ShoppingCart>>(WC.SessionCart) != null &&
+           HttpContext.Session.Get<IEnumerable<ShoppingCart>>(WC.SessionCart).Count() > 0)
+            {
+                shoppingCarts = HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart);
+            }
+
+            shoppingCarts.Add(new ShoppingCart() { ProductId = id });
+            HttpContext.Session.Set(WC.SessionCart, shoppingCarts);
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult RemoveFromCart(int id)
+        {
+            List<ShoppingCart> shoppingCarts = new List<ShoppingCart>();
+            if (HttpContext.Session.Get<IEnumerable<ShoppingCart>>(WC.SessionCart) != null &&
+           HttpContext.Session.Get<IEnumerable<ShoppingCart>>(WC.SessionCart).Count() > 0)
+            {
+                shoppingCarts = HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart);
+            }
+
+            var itemToRemove = shoppingCarts.SingleOrDefault(r => r.ProductId == id);
+            if (itemToRemove != null)
+            {
+                shoppingCarts.Remove(itemToRemove);
+            }
+
+            HttpContext.Session.Set(WC.SessionCart, shoppingCarts);
+            return RedirectToAction(nameof(Index));
+        }
 
     }
 }
