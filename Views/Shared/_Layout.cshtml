@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+@using OnlineShop.Utility
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -35,7 +39,8 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" asp-action="Index" asp-controller="Category">Index</a></li>
-                                <li><a class="dropdown-item" asp-action="Create" asp-controller="Category">Create</a></li>
+                                <li><a class="dropdown-item" asp-action="Create" asp-controller="Category">Create</a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -45,6 +50,26 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Product"
                                 asp-action="Index">Product</a>
+                        </li>
+
+                        <li class="nav-item">
+                            @if (httpContextAccessor.HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart) !=
+                                                        null)
+                            {
+                                <a asp-action="Index" asp-controller="Cart" class="nav-link">
+                                    @{
+                                        var count =
+                                        httpContextAccessor.HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart).Count;
+                                    }
+                                    <i class="fas fa-shopping-cart"></i> &nbsp; (@count)
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-shopping-cart"></i>&nbsp; (0)
+                                </a>
+                            }
                         </li>
                     </ul>
                 </div>

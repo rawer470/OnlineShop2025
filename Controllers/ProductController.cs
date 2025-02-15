@@ -1,4 +1,5 @@
 using System.Reflection;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,7 @@ using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 using OnlineShop.Data;
 using OnlineShop.Models;
 using OnlineShop.Models.ViewModel;
+using OnlineShop.Utility;
 
 namespace OnlineShop.Controllers
 {
@@ -64,7 +66,7 @@ namespace OnlineShop.Controllers
             Product productnew = new Product()
             {
                 Name = product.Name,
-                Image = Path.Combine(WC.ImagePath,$"{fileName}{extension}"),
+                Image = Path.Combine(WC.ImagePath, $"{fileName}{extension}"),
                 CategoryId = product.CategoryId,
                 CompanyId = product.CompanyId,
                 Description = product.Description,
@@ -107,7 +109,75 @@ namespace OnlineShop.Controllers
             return RedirectToAction("Index", "Company");
         }
 
+        public IActionResult Details(int id) //ProductId
+        {
 
+            List<ShoppingCart> shoppingCarts = new List<ShoppingCart>();
+            if (HttpContext.Session.Get<IEnumerable<ShoppingCart>>(WC.SessionCart) != null &&
+            HttpContext.Session.Get<IEnumerable<ShoppingCart>>(WC.SessionCart).Count() > 0)
+            {
+                //Получаем лист из сессии если он существует
+                shoppingCarts = HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart);
+            }
+
+            DetailsVM details = new DetailsVM()
+            {
+                Product = context.Products.Include(u => u.Category).Include(u => u.Company).Where(u => u.Id == id).FirstOrDefault(),
+                ExistsInCart = false
+            };
+
+            //Получаем элементы из корзины
+            foreach (var item in shoppingCarts)
+            {
+                if (item.ProductId == id) // Если товар уже есть в корзине
+                {
+                    details.ExistsInCart = true;
+                }
+            }
+
+            return View(details);
+        }
+        [HttpPost]
+        public IActionResult DetailsPost(int id) //ProductId
+        {
+            //Создаем корзину для просмотра сессии с корзиной
+            List<ShoppingCart> shoppingCarts = new List<ShoppingCart>();
+            if (HttpContext.Session.Get<IEnumerable<ShoppingCart>>(WC.SessionCart) != null &&
+            HttpContext.Session.Get<IEnumerable<ShoppingCart>>(WC.SessionCart).Count() > 0)
+            {
+                //Сессия существует
+                //Берем из сессии корзину
+                shoppingCarts = HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart);
+            }
+            //Добавляем продукт в корзину
+            shoppingCarts.Add(new ShoppingCart() { ProductId = id });
+
+            //Устанавливаем сессию
+            HttpContext.Session.Set(WC.SessionCart, shoppingCarts);
+
+            return RedirectToAction(nameof(Index));
+        }
+        public IActionResult RemoveFromCart(int id)
+        {
+            List<ShoppingCart> shoppingCarts = new List<ShoppingCart>();
+            if (HttpContext.Session.Get<IEnumerable<ShoppingCart>>(WC.SessionCart) != null &&
+            HttpContext.Session.Get<IEnumerable<ShoppingCart>>(WC.SessionCart).Count() > 0)
+            {
+                //Сессия существует
+                //Берем из сессии корзину
+                shoppingCarts = HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart);
+            }
+
+            var itemToRemove = shoppingCarts.SingleOrDefault(r => r.ProductId == id);
+            if (itemToRemove != null)
+            {
+                shoppingCarts.Remove(itemToRemove);
+            }
+
+            HttpContext.Session.Set(WC.SessionCart, shoppingCarts);
+
+            return RedirectToAction(nameof(Index));
+        }
 
     }
 }
