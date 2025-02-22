@@ -25,6 +25,7 @@ namespace OnlineShop.Controllers
         // GET: ProductController
         public ActionResult Index()
         {
+           var a = User.Identity.IsAuthenticated;
             //  var a = context.Products.ToList();
             ProductFilterVM productFilter = new ProductFilterVM()
             {
