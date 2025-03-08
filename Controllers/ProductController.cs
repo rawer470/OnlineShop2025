@@ -169,7 +169,7 @@ namespace OnlineShop.Controllers
                 shoppingCarts.Remove(itemToRemove);
             }
 
-            HttpContext.Session.Set(WC.SessionCart, shoppingCarts);
+            HttpContext.Session.Set(WC.SessionCart,shoppingCarts);
             return RedirectToAction(nameof(Index));
         }
 

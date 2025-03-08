@@ -1,9 +1,12 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShop.Data;
 using OnlineShop.Models;
+using OnlineShop.Utility;
 
 namespace OnlineShop.Controllers
 {
+    [Authorize(Roles =WC.AdminRole)]
     public class CompanyController : Controller
     {
 

@@ -1,9 +1,12 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShop.Data;
 using OnlineShop.Models;
+using OnlineShop.Utility;
 
 namespace OnlineShop.Controllers
 {
+    [Authorize(Roles =WC.AdminRole)]
     public class CategoryController : Controller
     {
         private ApplicationDbContext context;
@@ -77,8 +80,9 @@ namespace OnlineShop.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(Category category)
+        public IActionResult Delete(int id)
         {
+            var category = context.Category.FirstOrDefault(n => n.Id == id);
             context.Category.Remove(category);
             context.SaveChanges();
             return RedirectToAction("Index");

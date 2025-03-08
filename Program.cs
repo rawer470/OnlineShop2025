@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using OnlineShop.Data;
+using OnlineShop.Utility;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,12 +17,15 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDistributedMemoryCache();// добавляем IDistributedMemoryCache
 builder.Services.AddSession();  // добавляем сервисы сессии
 builder.Services.AddHttpContextAccessor(); //для сессий
-
+builder.Services.AddTransient<IEmailSender, EmailSender>();
 // builder.Services.AddDefaultIdentity<IdentityUser>().
 // AddEntityFrameworkStores<ApplicationDbContext>();//Для identity
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().
 AddDefaultTokenProviders().AddDefaultUI().AddEntityFrameworkStores<ApplicationDbContext>(); //Для полного Identity с Ролями
+
+
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
@@ -32,15 +37,15 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseRouting();             // 1. Включаем маршрутизацию
+app.UseAuthentication();      // 2. Аутентификация (куки, JWT и т. д.)
+app.UseAuthorization();    
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseSession();
-app.UseRouting();
 app.MapRazorPages(); // For Razor PAge
-app.UseAuthorization();
-app.UseAuthentication(); //Для identity
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Company}/{action=Index}/");
+    pattern: "{controller=Product}/{action=Index}/");
 
 app.Run();

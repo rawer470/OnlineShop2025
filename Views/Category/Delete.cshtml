@@ -7,11 +7,14 @@
 <h1>Delete Category</h1>
 
 <form asp-action="Delete" method="post" class="form-group">
-    <div>
-        <input class="form-control" type="text" asp-for="Name" disabled/>
+     <div>
+        <input class="form-control"  asp-for="Id" hidden/>
     </div>
     <div>
-        <input class="form-control" type="text" asp-for="DisplayOrder" disabled/>
+        <input class="form-control"  asp-for="Name" disabled/>
+    </div>
+    <div>
+        <input class="form-control" asp-for="DisplayOrder" disabled/>
     </div>
     <div>
         <input class="btn btn-danger" type="submit" value="Delete"/>
