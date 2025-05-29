@@ -99,7 +99,8 @@ public class CartController : Controller
         {
             shoppingCarts.Add(new ShoppingCart()
             {
-                ProductId = prod.Id, Count = prod.TempCount
+                ProductId = prod.Id,
+                Count = prod.TempCount
             });
         }
 
@@ -114,6 +115,8 @@ public class CartController : Controller
     {
         var claimsIdentity = (ClaimsIdentity)User.Identity;
         var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
+
         InquiryHeader inquiryHeader = new InquiryHeader()
         {
 
@@ -152,4 +155,6 @@ public class CartController : Controller
         TempData[WC.Success] = "Inquiry created successfully";
         return RedirectToAction("Index", "Home");
     }
+
 }
+

@@ -1,0 +1,70 @@
+﻿@using Asp2025_Models.ViewModel
+@using Asp2025_Utility
+@model OrderVM
+
+<h2>Order Details</h2>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <strong>Order Info</strong>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Order ID</dt>
+            <dd class="col-sm-9">@Model.OrderHeader.Id</dd>
+
+            <dt class="col-sm-3">Order Date</dt>
+            <dd class="col-sm-9">@Model.OrderHeader.OrderDate.ToString("dd/MM/yyyy")</dd>
+
+            <dt class="col-sm-3">Status</dt>
+            <dd class="col-sm-9">@Model.OrderHeader.OrderStatus</dd>
+
+            <dt class="col-sm-3">Total</dt>
+            <dd class="col-sm-9">$@Model.OrderHeader.FinalOrderTotal.ToString("F2")</dd>
+
+            <dt class="col-sm-3">Customer</dt>
+            <dd class="col-sm-9">@Model.OrderHeader.FullName</dd>
+
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9">@Model.OrderHeader.Email</dd>
+
+            <dt class="col-sm-3">Phone</dt>
+            <dd class="col-sm-9">@Model.OrderHeader.PhoneNumber</dd>
+        </dl>
+    </div>
+</div>
+
+<h4>Order Items</h4>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Count</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderDetails)
+        {
+            <tr>
+                <td>@item.Product.Name</td>
+                <td>@item.Count</td>
+                <td>$@item.Product.Price</td>
+                <td>$@(item.Count* item.Product.Price)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (User.IsInRole(WC.AdminRole))
+{
+    <div>
+        <h1> Change Status Order</h1>
+        <form>
+            <input hidden name="orderId" value="@Model.OrderHeader.Id" />
+            <button class="btn btn-primary" type="submit" asp-action="ChangeStatusOrder">Processing</button>
+        </form>
+
+    </div>
+}

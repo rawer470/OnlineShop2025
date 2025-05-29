@@ -1,4 +1,5 @@
-﻿@model List<Product>
+﻿@using Asp2025_Utility
+@model List<Product>
 
 @{
     var orderTotal = 0.0;
@@ -28,6 +29,7 @@ else
                 <p>
                     <input asp-for="@Model[i].TempCount" class="form-control" />
                 </p>
+                
 
                 <p>@Model[i].Description</p>
 
@@ -73,14 +75,24 @@ else
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
 
-            <input type="submit" asp-action="UpdateCart" formmethod="post" name="Update" class="btn btn-info form-control"
-                value="Update Cart" />
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            @if (User.IsInRole(WC.AdminRole))
+            {
+ <input type="submit" asp-action="InquiryAdd" formmethod="post" name="Update"
+                    class="btn btn-primary form-control" value="SUBMIT ORDER" />
+            }
+            else
+            {
+
+                <input type="submit" asp-action="InquiryAdd" formmethod="post" name="Update"
+                    class="btn btn-success form-control" value="SUBMIT INQUIRY" />
+            }
+
         </form>
     </div>
 
-    <div>
+    <div style="margin: 10px">
+        <h2>Update Cart</h2>
         <form method="post" asp-controller="Cart" asp-action="UpdateCart">
             @for (int i = 0; i < Model.Count; i++)
             {

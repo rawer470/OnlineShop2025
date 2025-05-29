@@ -6,6 +6,7 @@
 
     <table>
         <input hidden asp-for="InquiryHeader.Id" />
+         <input hidden asp-for="InquiryHeader.ApplicationUserId" />
         <a asp-action="Index" class="btn btn-outline-info form-control btn-sm">Back to Inquiry</a>
         <tr>
             <td>Name</td>
@@ -24,7 +25,7 @@
             <td><input asp-for="InquiryHeader.Email" type="text" class="form-control"></td>
             <span asp-validation-for="InquiryHeader.Email" class="text-danger"></span>
         </tr>
-
+       
         <tr>
             <td>Date</td>
             <td><input value="@Model.InquiryHeader.InquiryDate.ToShortDateString()" type="text" disabled
@@ -34,7 +35,8 @@
         </tr>
 
         <tr>
-            <td><input type="submit" value="Convert to Cart" class="btn btn-info form-control"></td>
+            <td><input type="submit" value="Approved" asp-action="AddOrder" asp-controller="Order"
+                    class="btn btn-info form-control"></td>
             <td><input type="submit" formmethod="post" formaction="/Inquiry/Delete" value="Delete"
                     class="btn btn-danger form-control"></td>
         </tr>

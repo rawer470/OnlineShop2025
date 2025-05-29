@@ -26,9 +26,10 @@ namespace OnlineShop.Controllers
         // GET: InquiryController
         public ActionResult Index()
         {
-            
             return View();
         }
+
+        
 
         public IActionResult Details(int id)
         {

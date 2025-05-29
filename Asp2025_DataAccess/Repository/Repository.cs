@@ -15,7 +15,7 @@ public class Repository<T> : IRepository<T> where T : class
     public Repository(ApplicationDbContext db)
     {
         this._db = db;
-       this.dbSet = _db.Set<T>();
+        this.dbSet = _db.Set<T>();
     }
     public void Add(T entity)
     {
@@ -86,7 +86,6 @@ public class Repository<T> : IRepository<T> where T : class
         }
 
         return query.ToList();
-
 
     }
 

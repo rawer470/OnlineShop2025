@@ -27,19 +27,9 @@ public class OrderHeader
     // дата оплаты
     public DateTime PaymentDate { get; set; }
 
-    // хранит данные о транзакции платежной системы Brain 3
-    public string TransactionId { get; set; }
 
     [Required]
     public string PhoneNumber { get; set; }
-    [Required]
-    public string StreetAddress { get; set; }
-    [Required]
-    public string City { get; set; }
-    [Required]
-    public string State { get; set; }
-    [Required]
-    public string PostalCode { get; set; }
     [Required]
     public string FullName { get; set; }
     public string Email { get; set; }
