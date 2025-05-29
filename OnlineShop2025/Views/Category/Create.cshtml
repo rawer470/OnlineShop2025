@@ -1,0 +1,20 @@
+﻿@model Asp2025_Models.Category
+
+@{
+    ViewData["Title"] = "Create Category";
+}
+
+<h1>Create Category</h1>
+
+<form asp-action="Create" method="post" class="form-group">
+    <div>
+        <input class="form-control" type="text" asp-for="Name" placeholder="name category"/>
+    </div>
+    <div>
+        <input class="form-control" type="text" asp-for="DisplayOrder" placeholder="display order"/>
+    </div>
+    <div>
+        <input class="btn btn-info" type="submit" value="Create"/>
+        <a asp-action="Index" class="btn btn-success">Back</a>
+    </div>
+</form>

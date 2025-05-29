@@ -1,0 +1,56 @@
+﻿@model Asp2025_Models.ViewModel.InquiryVM
+
+<form method="post">
+    <br />
+    <h2>Pick up Details:</h2>
+
+    <table>
+        <input hidden asp-for="InquiryHeader.Id" />
+        <a asp-action="Index" class="btn btn-outline-info form-control btn-sm">Back to Inquiry</a>
+        <tr>
+            <td>Name</td>
+            <td><input asp-for="InquiryHeader.FullName" type="text" class="form-control"></td>
+            <span asp-validation-for="InquiryHeader.FullName" class="text-danger"></span>
+        </tr>
+
+        <tr>
+            <td>Phone</td>
+            <td><input asp-for="InquiryHeader.PhoneNumber" type="text" class="form-control"></td>
+            <span asp-validation-for="InquiryHeader.PhoneNumber" class="text-danger"></span>
+        </tr>
+
+        <tr>
+            <td>Email</td>
+            <td><input asp-for="InquiryHeader.Email" type="text" class="form-control"></td>
+            <span asp-validation-for="InquiryHeader.Email" class="text-danger"></span>
+        </tr>
+
+        <tr>
+            <td>Date</td>
+            <td><input value="@Model.InquiryHeader.InquiryDate.ToShortDateString()" type="text" disabled
+                    class="form-control">
+                <span asp-validation-for="InquiryHeader.InquiryDate" class="text-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td><input type="submit" value="Convert to Cart" class="btn btn-info form-control"></td>
+            <td><input type="submit" formmethod="post" formaction="/Inquiry/Delete" value="Delete"
+                    class="btn btn-danger form-control"></td>
+        </tr>
+    </table>
+
+    <br />
+
+    <h2>Order Summary</h2>
+
+    @foreach (var item in Model.InquiryDetails)
+    {
+        <h6 class="text-info">@item.Product.Name</h6>
+        <p class="text-muted">Price: $@item.Product.Price</p>
+        <p class="text-muted">Count: @item.Count</p>
+
+        <br />
+    }
+
+</form>

@@ -1,0 +1,34 @@
+﻿@model Asp2025_Models.ViewModel.DetailsVM
+
+<div style="padding: 25px;">
+    <div style="background-color:grey;">
+        <h2>@Model.Product.Name</h2>
+        <h2 style="color: yellow;">@Model.Product.Price</h2>
+    </div>
+
+    <div style="display: flex;">
+        <img class="card-img-top" style="width: 250px;" src="~/@Model.Product.Image" alt="">
+        <p>@Model.Product.Description</p>
+    </div>
+    <div style="display: flex; ">
+        <form method="post" asp-action="DetailsPost" asp-controller="Product">
+            <input name="id" type="number" value="@Model.Product.Id" hidden />
+            <button asp-action="Index" asp-controller="Product" class="btn btn-success">Back to list</button>
+            @if (Model.ExistsInCart)
+            {
+                <a asp-action="RemoveFromCart" asp-route-Id="@Model.Product.Id" class="btn btn-warning"
+                    style="height: 50px;">Remove From
+                    Cart</a>
+                <h2>---------------------</h2>
+
+                <input asp-for="@Model.Product.TempCount" class="form-control" readonly />
+
+            }
+            else
+            {
+                <input type="submit" class="btn btn-primary" style="height: 50px;" value="Add to Cart" />
+                <input asp-for="@Model.Product.TempCount" name="tempCount" class="form-control"  />
+            }
+        </form>
+    </div>
+</div>

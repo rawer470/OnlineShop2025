@@ -1,0 +1,5 @@
+/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_Models/obj/Debug/net9.0/Asp2025_Models.csproj.AssemblyReference.cache
+/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_Models/obj/Debug/net9.0/Asp2025_Models.GeneratedMSBuildEditorConfig.editorconfig
+/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_Models/obj/Debug/net9.0/Asp2025_Models.AssemblyInfoInputs.cache
+/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_Models/obj/Debug/net9.0/Asp2025_Models.AssemblyInfo.cs
+/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_Models/obj/Debug/net9.0/Asp2025_Models.csproj.CoreCompileInputs.cache

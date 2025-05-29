@@ -1,0 +1,9 @@
+﻿@model Asp2025_Models.Company
+
+<div>
+    <form method="post" asp-action="Edit">
+        <input value="@Model.Id" asp-for="Id" hidden />
+        <input value="@Model.Name" asp-for="Name" />
+        <input type="submit" />
+    </form>
+</div>

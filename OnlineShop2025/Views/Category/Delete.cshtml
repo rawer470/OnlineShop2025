@@ -1,0 +1,23 @@
+﻿@model Asp2025_Models.Category
+
+@{
+    ViewData["Title"] = "Delete Category";
+}
+
+<h1>Delete Category</h1>
+
+<form asp-action="Delete" method="post" class="form-group">
+     <div>
+        <input class="form-control"  asp-for="Id" hidden/>
+    </div>
+    <div>
+        <input class="form-control"  asp-for="Name" disabled/>
+    </div>
+    <div>
+        <input class="form-control" asp-for="DisplayOrder" disabled/>
+    </div>
+    <div>
+        <input class="btn btn-danger" type="submit" value="Delete"/>
+        <a asp-action="Index" class="btn btn-success">Back</a>
+    </div>
+</form>

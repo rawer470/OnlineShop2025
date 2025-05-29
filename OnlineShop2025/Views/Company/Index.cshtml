@@ -1,0 +1,22 @@
+﻿@model List<Asp2025_Models.Company>
+
+<a asp-action="Add" asp-controller="Company">Add</a>
+
+@foreach (var comp in Model)
+{
+
+    <div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">@comp.Name</h5>
+        <p class="card-text">Id: @comp.Id</p>
+        <form method="get">
+            <input type="number" value="@comp.Id" name="id" hidden />
+            <input type="submit" value="Delete" class="btn btn-danger" asp-action="Delete" />
+            <input type="submit" value="Edit" class="btn btn-primary" asp-action="Edit" />
+            <input type="submit" value="Add Product" class="btn btn-success" asp-action="Add"
+                asp-controller="Product" />
+        </form>
+    </div>
+</div>
+
+}

@@ -1,0 +1,31 @@
+﻿@model Asp2025_Models.Product
+
+
+<div>
+    <form method="post" asp-action="Edit">
+        <input type="number" asp-for="Id" hidden value="@Model.Id"/>
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Name</label>
+            <input type="text" asp-for="Name" value="@Model.Name" class="form-control"
+                placeholder="Example input placeholder">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Price" class="form-label">Price </label>
+            <input type="text" asp-for="Price" value="@Model.Price" class="form-control"
+                placeholder="Example input placeholder">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label">Description </label>
+            <input type="text" asp-for="Description" value="@Model.Description" class="form-control"
+                placeholder="Example input placeholder">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Image</label>
+            <input type="text" name="Image" asp-for="Image" class="form-control" placeholder="Image">
+        </div>
+        @Html.DropDownList("CategoryId", ViewBag.CategoryChoose as SelectList)
+        @Html.DropDownList("CompanyId", ViewBag.CompanyChoose as SelectList)
+        <input type="submit" class="btn btn-primary" />
+    </form>
+</div>

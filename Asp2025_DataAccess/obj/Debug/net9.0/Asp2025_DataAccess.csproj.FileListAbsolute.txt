@@ -1,0 +1,12 @@
+/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_DataAccess/bin/Debug/net9.0/Asp2025_DataAccess.deps.json
+/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_DataAccess/bin/Debug/net9.0/Asp2025_DataAccess.dll
+/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_DataAccess/bin/Debug/net9.0/Asp2025_DataAccess.pdb
+/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_DataAccess/obj/Debug/net9.0/Asp2025_DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_DataAccess/obj/Debug/net9.0/Asp2025_DataAccess.AssemblyInfoInputs.cache
+/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_DataAccess/obj/Debug/net9.0/Asp2025_DataAccess.AssemblyInfo.cs
+/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_DataAccess/obj/Debug/net9.0/Asp2025_DataAccess.csproj.CoreCompileInputs.cache
+/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_DataAccess/obj/Debug/net9.0/Asp2025_DataAccess.dll
+/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_DataAccess/obj/Debug/net9.0/refint/Asp2025_DataAccess.dll
+/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_DataAccess/obj/Debug/net9.0/Asp2025_DataAccess.pdb
+/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_DataAccess/obj/Debug/net9.0/ref/Asp2025_DataAccess.dll
+/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_DataAccess/obj/Debug/net9.0/Asp2025_DataAccess.csproj.AssemblyReference.cache
