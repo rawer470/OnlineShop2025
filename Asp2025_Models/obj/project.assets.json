@@ -4889,11 +4889,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_Models/Asp2025_Models.csproj",
+      "projectUniqueName": "/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/Asp2025_Models.csproj",
       "projectName": "Asp2025_Models",
-      "projectPath": "/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_Models/Asp2025_Models.csproj",
+      "projectPath": "/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/Asp2025_Models.csproj",
       "packagesPath": "/Users/artemkolerov/.nuget/packages/",
-      "outputPath": "/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_Models/obj/",
+      "outputPath": "/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/artemkolerov/.nuget/NuGet/NuGet.Config"

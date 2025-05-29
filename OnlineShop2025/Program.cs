@@ -17,6 +17,8 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>(); //Реги�
 
 builder.Services.AddScoped<IInquiryHeaderRepository, InquiryHeaderRepository>(); //Регистрация репозитория InquiryHeader
 builder.Services.AddScoped<IInquiryDetailRepository, InquiryDetailRepository>(); //Регистрация репозитория InquiryDetail
+builder.Services.AddScoped<IOrderHeaderRepository, OrderHeaderRepository>(); //Регистрация репозитория OrderHeader
+builder.Services.AddScoped<IOrderDetailRepository, OrderDetailRepository>(); //Регистрация репозитория OrderDetail
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
