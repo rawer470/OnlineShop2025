@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_Utility/Asp2025_Utility.csproj",
+      "projectUniqueName": "/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Utility/Asp2025_Utility.csproj",
       "projectName": "Asp2025_Utility",
-      "projectPath": "/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_Utility/Asp2025_Utility.csproj",
+      "projectPath": "/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Utility/Asp2025_Utility.csproj",
       "packagesPath": "/Users/artemkolerov/.nuget/packages/",
-      "outputPath": "/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_Utility/obj/",
+      "outputPath": "/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Utility/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/artemkolerov/.nuget/NuGet/NuGet.Config"

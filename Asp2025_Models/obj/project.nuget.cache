@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6gdKHK9/G/c=",
+  "dgSpecHash": "Bbx/bOMXFDs=",
   "success": true,
-  "projectFilePath": "/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_Models/Asp2025_Models.csproj",
+  "projectFilePath": "/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/Asp2025_Models.csproj",
   "expectedPackageFiles": [
     "/Users/artemkolerov/.nuget/packages/microsoft.aspnetcore.antiforgery/2.3.0/microsoft.aspnetcore.antiforgery.2.3.0.nupkg.sha512",
     "/Users/artemkolerov/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.3.0/microsoft.aspnetcore.authentication.abstractions.2.3.0.nupkg.sha512",

@@ -22,3 +22,16 @@
 /Users/viosagmir/Downloads/4Course/Asp2025_Models/obj/Debug/net8.0/refint/Asp2025_Models.dll
 /Users/viosagmir/Downloads/4Course/Asp2025_Models/obj/Debug/net8.0/Asp2025_Models.pdb
 /Users/viosagmir/Downloads/4Course/Asp2025_Models/obj/Debug/net8.0/ref/Asp2025_Models.dll
+/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/bin/Debug/net8.0/Asp2025_Models.deps.json
+/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/bin/Debug/net8.0/Asp2025_Models.dll
+/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/bin/Debug/net8.0/Asp2025_Models.pdb
+/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/obj/Debug/net8.0/Asp2025_Models.csproj.AssemblyReference.cache
+/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/obj/Debug/net8.0/Asp2025_Models.GeneratedMSBuildEditorConfig.editorconfig
+/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/obj/Debug/net8.0/Asp2025_Models.AssemblyInfoInputs.cache
+/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/obj/Debug/net8.0/Asp2025_Models.AssemblyInfo.cs
+/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/obj/Debug/net8.0/Asp2025_Models.csproj.CoreCompileInputs.cache
+/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/obj/Debug/net8.0/Asp2025_Models.sourcelink.json
+/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/obj/Debug/net8.0/Asp2025_Models.dll
+/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/obj/Debug/net8.0/refint/Asp2025_Models.dll
+/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/obj/Debug/net8.0/Asp2025_Models.pdb
+/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/obj/Debug/net8.0/ref/Asp2025_Models.dll

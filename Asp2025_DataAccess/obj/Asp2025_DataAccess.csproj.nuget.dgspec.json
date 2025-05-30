@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_DataAccess/Asp2025_DataAccess.csproj": {}
+    "/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_DataAccess/Asp2025_DataAccess.csproj": {}
   },
   "projects": {
-    "/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_DataAccess/Asp2025_DataAccess.csproj": {
+    "/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_DataAccess/Asp2025_DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_DataAccess/Asp2025_DataAccess.csproj",
+        "projectUniqueName": "/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_DataAccess/Asp2025_DataAccess.csproj",
         "projectName": "Asp2025_DataAccess",
-        "projectPath": "/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_DataAccess/Asp2025_DataAccess.csproj",
+        "projectPath": "/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_DataAccess/Asp2025_DataAccess.csproj",
         "packagesPath": "/Users/artemkolerov/.nuget/packages/",
-        "outputPath": "/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_DataAccess/obj/",
+        "outputPath": "/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_DataAccess/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/artemkolerov/.nuget/NuGet/NuGet.Config"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_Models/Asp2025_Models.csproj": {
-                "projectPath": "/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_Models/Asp2025_Models.csproj"
+              "/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/Asp2025_Models.csproj": {
+                "projectPath": "/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/Asp2025_Models.csproj"
               }
             }
           }
@@ -91,14 +91,14 @@
         }
       }
     },
-    "/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_Models/Asp2025_Models.csproj": {
+    "/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/Asp2025_Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_Models/Asp2025_Models.csproj",
+        "projectUniqueName": "/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/Asp2025_Models.csproj",
         "projectName": "Asp2025_Models",
-        "projectPath": "/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_Models/Asp2025_Models.csproj",
+        "projectPath": "/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/Asp2025_Models.csproj",
         "packagesPath": "/Users/artemkolerov/.nuget/packages/",
-        "outputPath": "/Users/artemkolerov/Desktop/VsProj/4Course/Asp2025_Models/obj/",
+        "outputPath": "/Users/artemkolerov/Desktop/VsProj/OnlineShop2025/Asp2025_Models/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/artemkolerov/.nuget/NuGet/NuGet.Config"
