@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Asp2025_Models")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a2952cca66833254a34a6388b31da1e191eb509")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+807f6668d0bfb2366d705e7638f7ed57269d0386")]
 [assembly: System.Reflection.AssemblyProductAttribute("Asp2025_Models")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Asp2025_Models")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
