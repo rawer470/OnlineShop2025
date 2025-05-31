@@ -3,11 +3,13 @@ using Asp2025_DataAccess.Repository.IRepository;
 using Asp2025_Models;
 using Asp2025_Models.ViewModel;
 using Asp2025_Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
 
 namespace OnlineShop.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private IOrderHeaderRepository orderHeaderRepository;
